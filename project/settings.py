@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-bpx##pwn8b_&1ktdyt5oqsq10^cx#brv#^o=9#hs%=js1x*q4q
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '127.0.0.1'
+    'deploy.vhdevs.com.br'
 ]
 
 
@@ -110,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-BR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
