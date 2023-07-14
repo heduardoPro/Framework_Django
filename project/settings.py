@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bpx##pwn8b_&1ktdyt5oqsq10^cx#brv#^o=9#hs%=js1x*q4q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    'deploy.vhdevs.com.br'
+    
 ]
 
 
