@@ -43,9 +43,12 @@ a {
 .menu_links {
   list-style: none;
   display: flex;
+  justify-content: center;
 }
+
 .menu_links a {
   display: block;
+  font-weight: bold;
   color: #fff;
   padding: 1.5rem;
 }
