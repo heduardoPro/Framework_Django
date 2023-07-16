@@ -1,5 +1,15 @@
 {% extends 'global/base.html' %}
 
-{% block home %}
-    <h1>Envie arquivos aqui.</h1>
+<main class="card-content">
+    {% block home %}
+    <div class="container card-centered">
+        <h1>Upload de Arquivo</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="arquivo" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    
 {% endblock home %}
+</main>
