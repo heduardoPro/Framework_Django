@@ -1,14 +1,26 @@
 {% extends 'global/base.html' %}
 
+{% block home %}
 <main class="card-content">
-    {% block home %}
     <div class="container card-centered">
         <h1>Upload de Arquivo</h1>
+        {% if uploaded %}
+            <div class="success-message">
+                <p>Arquivo enviado com sucesso!</p>
+            </div>
+        {% endif %}
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Enviar</button>
         </form>
+
+        {% if uploaded %}
+        <div class="success-message">
+            <p>Arquivo enviado com sucesso!</p>
+        </div>
+    {% endif %}
     </div>
-{% endblock home %}
 </main>
+
+{% endblock home %}
