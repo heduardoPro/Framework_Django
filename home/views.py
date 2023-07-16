@@ -1,24 +1,21 @@
-from django.shortcuts import render
-from .models import Arquivo
+from django.shortcuts import render, redirect
+from .models import Image
+from .forms import ImageForm
 
 def home(request):
-    
-    context = {
-        'text': 'Olá Home'
-    }
-
-    return render(
-        request,
-        'home/index.html',
-        context,
-    )
-
-def upload_arquivo(request):
-    
     if request.method == 'POST':
-        arquivo = request.FILES['arquivo']
-        novo_arquivo = Arquivo(arquivo=arquivo)
-        novo_arquivo.save()
-        return render(request, 'upload_success.html')
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'home/index.html')
     else:
-        return render(request, 'upload_form.html')
+        form = ImageForm()
+
+        images = Image.objects.all()
+
+        context = {
+        'form': form,
+        'images': images
+        }
+
+        return render(request, 'home/index.html', context)
