@@ -127,7 +127,6 @@ USE_TZ = True
 
 '''
 STATIC_URL = 'static/'
-
 STATIC_ROOT = BASE_DIR / 'static_files'
 
 MEDIA_URL = '/media/'
@@ -139,8 +138,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AWS_ACCESS_KEY_ID = 'AKIA5JMVHRHABAXE5MS6'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
 AWS_STORAGE_BUCKET_NAME = 'redesbucket'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
