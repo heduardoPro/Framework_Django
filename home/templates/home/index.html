@@ -2,12 +2,16 @@
 
 {% block home %}
 <div class="container card-centered">
-    <div class="">
+    <div class="centered">
         <h1>Upload de Arquivo</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Enviar</button>
+            <button type="submit" class="btn-style">Enviar</button>
+
+            <div class="btn-primary centered">   
+                <button id="btn-show-images" class="btn btn-primary mb-4 mt-4 btn-style">Mostrar Imagens</button>
+            </div>
         </form>
 
         {% if error_message %}
@@ -17,11 +21,9 @@
         {% if message %}
             <div class="message">{{ message }}</div>
         {% endif %}
+
     </div>
 
-    <div class="btn-primary">   
-        <button id="btn-show-images" class="btn btn-primary mb-4 mt-4">Mostrar Imagens</button>
-    </div>
 </div>
 
 <div class="images">
