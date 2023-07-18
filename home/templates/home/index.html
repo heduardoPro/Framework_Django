@@ -1,26 +1,53 @@
 {% extends 'global/base.html' %}
 
 {% block home %}
-<main class="card-content">
-    <div class="container card-centered">
+<div class="container card-centered">
+    <div class="">
         <h1>Upload de Arquivo</h1>
-        {% if uploaded %}
-            <div class="success-message">
-                <p>Arquivo enviado com sucesso!</p>
-            </div>
-        {% endif %}
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Enviar</button>
         </form>
 
-        {% if uploaded %}
-        <div class="success-message">
-            <p>Arquivo enviado com sucesso!</p>
-        </div>
-    {% endif %}
+        {% if error_message %}
+            <div class="error-message">{{ error_message }}</div>
+        {% endif %}
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
     </div>
-</main>
+
+    <div class="btn-primary">   
+        <button id="btn-show-images" class="btn btn-primary mb-4 mt-4">Mostrar Imagens</button>
+    </div>
+</div>
+
+<div class="images">
+    {% block image_content %}
+        {% for image in images %}
+            <div class="image">
+                <img src="{{ image.image.url }}" alt="{{ image.title }}">
+                <p>{{ image.title }}</p>
+            </div>
+        {% endfor %}
+    {% endblock %}
+</div>
+
+<script>
+    document.getElementById('btn-show-images').addEventListener('click', function () {
+        // Fazendo a solicitação AJAX para buscar a lista de imagens
+        fetch('/list/') // Certifique-se de que o URL esteja correto para a sua view ContextView
+            .then(response => response.text())
+            .then(data => {
+                // Inserindo o conteúdo retornado pelo servidor na div com a classe "images"
+                document.querySelector('.images').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Erro ao buscar a lista de imagens:', error);
+            });
+    });
+</script>
 
 {% endblock home %}

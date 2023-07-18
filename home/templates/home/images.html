@@ -1,0 +1,28 @@
+{% load static %}<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Home </title>
+    <link rel="stylesheet" href="{% static '../static/global/css/style.css' %}">
+    <title>GALERY</title>
+</head>
+<body>
+    {% include 'global/partials/menu.html' %}
+{% block images %}
+    <div>
+        <h1>Lista de Imagens</h1>
+        <ul>
+            <li>
+                {% for image in images %}
+                <img src="{{ image.image.url }}" height="200px" alt="..." />
+            </li>
+            {% empty %}
+            <li>Nenhuma imagem encontrada.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock images %}
+</body>
+</html>
