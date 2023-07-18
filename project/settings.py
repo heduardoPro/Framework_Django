@@ -144,6 +144,7 @@ AWS_STORAGE_BUCKET_NAME = 'redesbucket'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 AWS_DEFAULT_ACL = 'public-read'
+#AWS_S3_REGION = 'ue-east-2'
 
 AWS_LOCATION = 'static'
 STATICFILES_DIRS = [
@@ -156,4 +157,7 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION_MEDIA)
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'project.storages.MediaStore'
+
+
+#URL_SQS = 'https://sqs.us-east-2.amazonaws.com/913530390976/MyQueue.fifo'
 
