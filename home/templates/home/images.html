@@ -1,6 +1,6 @@
 
 {% block images %}
-    <div>
+    <div class="list-images">
         <h1>Lista de Imagens</h1>
         <ul>
             <li>
@@ -8,7 +8,7 @@
                 <img src="{{ image.image.url }}" height="200px" alt="..." />
             </li>
             {% empty %}
-            <li>Nenhuma imagem encontrada.</li>
+                Nenhuma imagem encontrada.
             {% endfor %}
         </ul>
     </div>
