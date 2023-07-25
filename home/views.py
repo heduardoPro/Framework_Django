@@ -13,7 +13,7 @@ from project.settings import (
      AWS_SECRET_ACCESS_KEY,
      URL_SQS,
 )
-
+#view do index
 class IndexView(SuccessMessageMixin, FormView):
     template_name = 'home/index.html'
     form_class = ImageForm

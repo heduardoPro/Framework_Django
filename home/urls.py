@@ -4,6 +4,7 @@ from .views import ContextView, IndexView
 
 app_name = 'home'
 
+#urls da home
 urlpatterns = [
     path('', IndexView.as_view(), name="home"),
     path('list/', ContextView.as_view(), name='list'),
